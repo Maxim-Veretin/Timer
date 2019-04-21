@@ -1,0 +1,29 @@
+﻿<Window x:Class="Timer.AddTimerWnd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Timer"
+        mc:Ignorable="d"
+        Title="AddTimerWnd" Height="338" Width="230">
+    <Grid>
+        <Label x:Name="lb1" Content="Имя:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="40" Height="25"/>
+        <TextBox x:Name="txname" HorizontalAlignment="Left" Height="25" Margin="60,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Часы" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="60" Height="25"/>
+        <Label Content="Минyты" HorizontalAlignment="Left" Margin="80,45,0,0" VerticalAlignment="Top" Width="60" Height="25"/>
+        <Label Content="Секyнды" HorizontalAlignment="Left" Margin="150,45,0,0" VerticalAlignment="Top" Width="60" Height="25"/>
+        <TextBox x:Name="txh" HorizontalAlignment="Left" Height="23" Margin="10,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+        <TextBox x:Name="txs" HorizontalAlignment="Left" Height="23" Margin="150,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+        <TextBox x:Name="txm" HorizontalAlignment="Left" Height="23" Margin="80,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+        <!--<StackPanel Orientation="Horizontal">-->
+        <Calendar x:Name="days"
+            Margin="10,103,12,37" 
+            SelectedDate="4/1/2019"
+            DisplayDate="4/1/2019"
+            DisplayDateStart="1/1/2019"
+            DisplayDateEnd="12/31/2029"/>
+        <Button x:Name="Add" Content="Добавить" HorizontalAlignment="Left" Margin="10,276,0,0" VerticalAlignment="Top" Width="95" Click="Add_Click"/>
+        <Button x:Name="Cancel" Content="Отмена" HorizontalAlignment="Left" Margin="115,276,0,0" VerticalAlignment="Top" Width="95" Click="Cancel_Click"/>
+        <!--</StackPanel>-->
+    </Grid>
+</Window>
