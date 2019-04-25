@@ -17,8 +17,7 @@
         <TextBox x:Name="txm" HorizontalAlignment="Left" Height="23" Margin="80,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
         <!--<StackPanel Orientation="Horizontal">-->
         <Calendar x:Name="days"
-            Margin="10,103,12,37" 
-            SelectedDate="4/1/2019"
+            Margin="10,103,12,37"
             DisplayDate="4/1/2019"
             DisplayDateStart="1/1/2019"
             DisplayDateEnd="12/31/2029"/>

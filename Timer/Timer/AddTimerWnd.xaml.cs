@@ -17,17 +17,23 @@ namespace Timer
     public partial class AddTimerWnd : Window
     {
         public DateTime current;
+        public string nm;
 
-        public AddTimerWnd() => InitializeComponent();
+        public AddTimerWnd()
+        {
+            InitializeComponent();
+        }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            current = new DateTime (Convert.ToInt32(days), Convert.ToInt32(txh.Text), Convert.ToInt32(txm.Text), txs.Text;
+            nm = txname.Text;
+            current = new DateTime (Convert.ToInt32(days.SelectedDate.Value.Year), Convert.ToInt32(days.SelectedDate.Value.Month), Convert.ToInt32(days.SelectedDate.Value.Day), Convert.ToInt32(txh.Text), Convert.ToInt32(txm.Text), Convert.ToInt32(txs.Text));
+            DialogResult = true;
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-
+            DialogResult = false;
         }
     }
 }

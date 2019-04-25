@@ -17,9 +17,15 @@ namespace Timer
 {
     public partial class MainWindow : Window
     {
+        Dictionary<string, DateTime> list = new Dictionary<string, DateTime>();
         DateTime date;
+        DateTime date1 = DateTime.Now;
+        public string name;
 
-        public MainWindow() => InitializeComponent();
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
@@ -36,7 +42,12 @@ namespace Timer
             AddTimerWnd add_timer = new AddTimerWnd();
 
             if (add_timer.ShowDialog() == true)
+            {
                 date = add_timer.current;
+                name = add_timer.nm;
+                list.Add(name, date);
+                stack.Items.Add(name+":\n"+date);
+            }
             else { }
         }
 
@@ -52,7 +63,16 @@ namespace Timer
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
+            AddTimerWnd add_timer = new AddTimerWnd();
 
+            if (add_timer.ShowDialog() == true)
+            {
+                date = add_timer.current;
+                name = add_timer.nm;
+                list.Add(name, date);
+                stack.Items.Add(list);
+            }
+            else { }
         }
     }
 }

@@ -17,7 +17,7 @@
         <CheckBox x:Name="Minutes" Content="Минуты" HorizontalAlignment="Left" Margin="91,258,0,0" VerticalAlignment="Top" Width="69" RenderTransformOrigin="1.082,2.312"/>
         <CheckBox x:Name="Hourse" Content="Часы" HorizontalAlignment="Left" Margin="10,284,0,0" VerticalAlignment="Top" Width="69"/>
         <CheckBox x:Name="Days" Content="Дни" HorizontalAlignment="Left" Margin="91,284,0,0" VerticalAlignment="Top" Width="69"/>
-        <Label x:Name="lb" Content="Label" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="161" Width="274"/>
-        <ListBox x:Name="spisok" HorizontalAlignment="Left" Height="360" Margin="294,10,0,0" VerticalAlignment="Top" Width="490"/>
+        <Label x:Name="lb" Content="" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="161" Width="274"/>
+        <ListBox x:Name="stack" HorizontalAlignment="Left" Height="360" Margin="294,10,0,0" VerticalAlignment="Top" Width="490"/>
     </Grid>
 </Window>
