@@ -15,9 +15,17 @@ using System.Windows.Shapes;
 
 namespace Timer
 {
+    /// <summary>
+    /// + 1. Диалоговое окно с добавленеием даты
+    /// 2. Таймер
+    /// 3. Редактирование
+    /// 4. Сохранение
+    /// 5. Загрузка
+    /// </summary>
     public partial class MainWindow : Window
     {
         Dictionary<string, DateTime> list = new Dictionary<string, DateTime>();
+        System.Windows.Threading.DispatcherTimer Timer;
         DateTime date;
         DateTime date1 = DateTime.Now;
         public string name;
@@ -25,6 +33,27 @@ namespace Timer
         public MainWindow()
         {
             InitializeComponent();
+            Timer = new System.Windows.Threading.DispatcherTimer();
+            Timer.Tick += new EventHandler(DispatcherTimer_Tick);
+            Timer.Interval = new TimeSpan(0, 0, 1);
+        }
+
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            date = date.AddSeconds(1);
+            lb.Content = "";
+
+            if (Days.IsChecked == true)
+                lb.Content += (date - date1).Days.ToString() + ":";
+
+            if (Hours.IsChecked == true)
+                lb.Content += (date - date1).Hours.ToString() + ":";
+
+            if (Minutes.IsChecked == true)
+                lb.Content += (date - date1).Minutes.ToString() + ":";
+
+            if (Seconds.IsChecked == true)
+                lb.Content += (date-date1).Seconds.ToString();
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -63,16 +92,7 @@ namespace Timer
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            AddTimerWnd add_timer = new AddTimerWnd();
-
-            if (add_timer.ShowDialog() == true)
-            {
-                date = add_timer.current;
-                name = add_timer.nm;
-                list.Add(name, date);
-                stack.Items.Add(list);
-            }
-            else { }
+            Timer.Start();
         }
     }
 }

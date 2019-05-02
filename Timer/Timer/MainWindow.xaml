@@ -15,7 +15,7 @@
         <Button x:Name="Load" Content="Загрyзить" HorizontalAlignment="Left" Margin="544,380,0,0" VerticalAlignment="Top" Width="240" Click="Load_Click" Height="30"/>
         <CheckBox x:Name="Seconds" Content="Секунды" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Width="69"/>
         <CheckBox x:Name="Minutes" Content="Минуты" HorizontalAlignment="Left" Margin="91,258,0,0" VerticalAlignment="Top" Width="69" RenderTransformOrigin="1.082,2.312"/>
-        <CheckBox x:Name="Hourse" Content="Часы" HorizontalAlignment="Left" Margin="10,284,0,0" VerticalAlignment="Top" Width="69"/>
+        <CheckBox x:Name="Hours" Content="Часы" HorizontalAlignment="Left" Margin="10,284,0,0" VerticalAlignment="Top" Width="69"/>
         <CheckBox x:Name="Days" Content="Дни" HorizontalAlignment="Left" Margin="91,284,0,0" VerticalAlignment="Top" Width="69"/>
         <Label x:Name="lb" Content="" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="161" Width="274"/>
         <ListBox x:Name="stack" HorizontalAlignment="Left" Height="360" Margin="294,10,0,0" VerticalAlignment="Top" Width="490"/>
