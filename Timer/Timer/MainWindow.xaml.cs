@@ -17,7 +17,7 @@ namespace Timer
 {
     /// <summary>
     /// + 1. Диалоговое окно с добавленеием даты
-    /// + 2. Таймер
+    /// + 2. Таймер + прекол
     /// 3. Редактирование
     /// 4. Сохранение
     /// 5. Загрузка
@@ -29,7 +29,7 @@ namespace Timer
         System.Windows.Threading.DispatcherTimer Timer;
         DateTime date;
         DateTime date1 = DateTime.Now;
-
+        
         public string name;
 
         public MainWindow()
@@ -49,8 +49,9 @@ namespace Timer
         {
             date1 = date1.AddSeconds(1);
             lb.Content = "";
+            DateTime time = list[stack.SelectedValue.ToString()];
 
-            if ((list[stack.SelectedValue.ToString()] - date1).TotalSeconds < 0)
+            if ((time - date1).TotalSeconds < 0)
             {
                 Timer.Stop();
                 TimeEnd end = new TimeEnd();
@@ -59,16 +60,16 @@ namespace Timer
             }
             
             if (Days.IsChecked == true)
-                lb.Content += (list[stack.SelectedValue.ToString()] - date1).Days.ToString() + ":";
+                lb.Content += (time - date1).Days.ToString() + ":";
 
             if (Hours.IsChecked == true)
-                lb.Content += (list[stack.SelectedValue.ToString()] - date1).Hours.ToString() + ":";
+                lb.Content += (time - date1).Hours.ToString() + ":";
 
             if (Minutes.IsChecked == true)
-                lb.Content += (list[stack.SelectedValue.ToString()] - date1).Minutes.ToString() + ":";
+                lb.Content += (time - date1).Minutes.ToString() + ":";
 
             if (Seconds.IsChecked == true)
-                lb.Content += (list[stack.SelectedValue.ToString()] - date1).Seconds.ToString();
+                lb.Content += (time - date1).Seconds.ToString();
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
