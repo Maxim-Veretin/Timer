@@ -14,12 +14,9 @@ using System.Windows.Shapes;
 
 namespace Timer
 {
-    /// <summary>
-    /// Логика взаимодействия для Window1.xaml
-    /// </summary>
-    public partial class Window1 : Window
+    public partial class TimeEnd : Window
     {
-        public Window1()
+        public TimeEnd()
         {
             InitializeComponent();
         }

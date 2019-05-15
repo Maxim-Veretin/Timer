@@ -49,6 +49,14 @@ namespace Timer
         {
             date1 = date1.AddSeconds(1);
             lb.Content = "";
+
+            if ((list[stack.SelectedValue.ToString()] - date1).TotalSeconds < 0)
+            {
+                Timer.Stop();
+                TimeEnd end = new TimeEnd();
+                if (end.ShowDialog() == true)
+                { }
+            }
             
             if (Days.IsChecked == true)
                 lb.Content += (list[stack.SelectedValue.ToString()] - date1).Days.ToString() + ":";
@@ -61,12 +69,6 @@ namespace Timer
 
             if (Seconds.IsChecked == true)
                 lb.Content += (list[stack.SelectedValue.ToString()] - date1).Seconds.ToString();
-
-            if (lb.Content.ToString() == "0;0;0;0")
-            {
-                Timer.Stop();
-                AddTimerWnd end = new AddTimerWnd();
-            }
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -88,7 +90,7 @@ namespace Timer
                 date = add_timer.current;
                 name = add_timer.nm;
                 list.Add(name, date);
-                stack.Items.Add(name/*+":\n"+date*/);
+                stack.Items.Add(name);
             }
             else { }
         }
