@@ -18,7 +18,7 @@
         <!--<StackPanel Orientation="Horizontal">-->
         <Calendar x:Name="days"
             Margin="10,103,12,37"
-            DisplayDate="4/1/2019"
+            DisplayDate="5/1/2019"
             DisplayDateStart="1/1/2019"
             DisplayDateEnd="12/31/2029"/>
         <Button x:Name="Add" Content="Добавить" HorizontalAlignment="Left" Margin="10,276,0,0" VerticalAlignment="Top" Width="95" Click="Add_Click"/>
