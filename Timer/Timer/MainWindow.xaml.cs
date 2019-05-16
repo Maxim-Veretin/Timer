@@ -17,7 +17,7 @@ namespace Timer
 {
     /// <summary>
     /// + 1. Диалоговое окно с добавленеием даты
-    /// + 2. Таймер
+    /// + 2. Таймер + прекол
     /// 3. Редактирование
     /// 4. Сохранение
     /// 5. Загрузка
@@ -29,7 +29,7 @@ namespace Timer
         System.Windows.Threading.DispatcherTimer Timer;
         DateTime date;
         DateTime date1 = DateTime.Now;
-
+        
         public string name;
 
         public MainWindow()
@@ -49,24 +49,27 @@ namespace Timer
         {
             date1 = date1.AddSeconds(1);
             lb.Content = "";
-            
-            if (Days.IsChecked == true)
-                lb.Content += (list[stack.SelectedValue.ToString()] - date1).Days.ToString() + ":";
+            DateTime time = list[stack.SelectedValue.ToString()];
 
-            if (Hours.IsChecked == true)
-                lb.Content += (list[stack.SelectedValue.ToString()] - date1).Hours.ToString() + ":";
-
-            if (Minutes.IsChecked == true)
-                lb.Content += (list[stack.SelectedValue.ToString()] - date1).Minutes.ToString() + ":";
-
-            if (Seconds.IsChecked == true)
-                lb.Content += (list[stack.SelectedValue.ToString()] - date1).Seconds.ToString();
-
-            if (lb.Content.ToString() == "0;0;0;0")
+            if ((time - date1).TotalSeconds < 0)
             {
                 Timer.Stop();
-                AddTimerWnd end = new AddTimerWnd();
+                TimeEnd end = new TimeEnd();
+                if (end.ShowDialog() == true)
+                { }
             }
+            
+            if (Days.IsChecked == true)
+                lb.Content += (time - date1).Days.ToString() + ":";
+
+            if (Hours.IsChecked == true)
+                lb.Content += (time - date1).Hours.ToString() + ":";
+
+            if (Minutes.IsChecked == true)
+                lb.Content += (time - date1).Minutes.ToString() + ":";
+
+            if (Seconds.IsChecked == true)
+                lb.Content += (time - date1).Seconds.ToString();
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -88,7 +91,7 @@ namespace Timer
                 date = add_timer.current;
                 name = add_timer.nm;
                 list.Add(name, date);
-                stack.Items.Add(name/*+":\n"+date*/);
+                stack.Items.Add(name);
             }
             else { }
         }
