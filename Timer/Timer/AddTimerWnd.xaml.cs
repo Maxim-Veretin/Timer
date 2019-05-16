@@ -26,8 +26,16 @@ namespace Timer
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            nm = txname.Text;
-            current = new DateTime (Convert.ToInt32(days.SelectedDate.Value.Year), Convert.ToInt32(days.SelectedDate.Value.Month), Convert.ToInt32(days.SelectedDate.Value.Day), Convert.ToInt32(txh.Text), Convert.ToInt32(txm.Text), Convert.ToInt32(txs.Text));
+            try
+            {
+                nm = txname.Text;
+                current = new DateTime(Convert.ToInt32(days.SelectedDate.Value.Year), Convert.ToInt32(days.SelectedDate.Value.Month), Convert.ToInt32(days.SelectedDate.Value.Day), Convert.ToInt32(txh.Text), Convert.ToInt32(txm.Text), Convert.ToInt32(txs.Text));
+            }
+            catch(InvalidOperationException)
+            {
+                string st1 = "Дата и/или имя таймера не были введены.";
+                MessageBox.Show(st1, "Error", MessageBoxButton.OK);
+            }
             DialogResult = true;
         }
 
